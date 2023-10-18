@@ -9,6 +9,9 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("u r connected");
     conn.write("Name: PMF");
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 50);
   });
 
   conn.on('timeout', () => {
