@@ -8,6 +8,7 @@ const connect = function () {
 
   conn.on("connect", () => {
     console.log("u r connected");
+    conn.write("Name: PMF");
   });
 
   conn.on('timeout', () => {
