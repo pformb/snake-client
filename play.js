@@ -3,7 +3,7 @@ const { connect } = require("./client"); // Import the connect function from cli
 const { setupInput } = require('./input');
 
 console.log("Connecting ...");
-connect();
+const connection = connect();
 
 
-setupInput();
+setupInput(connection); 
