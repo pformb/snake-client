@@ -1,9 +1,10 @@
 // client.js
 const net = require("net");
+const { IP, PORT } = require("./constants");
 const connect = function () {
   const conn = net.createConnection({
-    host: "localhost", // IP address here,
-    port: 50541  // PORT number here,
+    host: IP, // IP address here,
+    port: PORT, // PORT number here,
   });
 
   conn.on("connect", () => {
@@ -11,12 +12,12 @@ const connect = function () {
     conn.write("Name: PMF");
   });
 
-  conn.on('timeout', () => {
+  conn.on("timeout", () => {
     console.log("you ded cuz you idled");
   });
 
   // Handle incoming data
-  conn.on('data', (data) => {
+  conn.on("data", (data) => {
     console.log("Received data from the server:", data);
     // You can process the data here or perform other actions as needed.
   });
@@ -26,7 +27,5 @@ const connect = function () {
 
   return conn;
 };
-
-
 
 module.exports = { connect };
